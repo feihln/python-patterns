@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """
 *References:
 http://en.wikibooks.org/wiki/Computer_Science_Design_Patterns/Bridge_Pattern#Python
@@ -39,16 +37,17 @@ class CircleShape:
 
 
 def main():
-    shapes = (CircleShape(1, 2, 3, DrawingAPI1()), CircleShape(5, 7, 11, DrawingAPI2()))
+    """
+    >>> shapes = (CircleShape(1, 2, 3, DrawingAPI1()), CircleShape(5, 7, 11, DrawingAPI2()))
 
-    for shape in shapes:
-        shape.scale(2.5)
-        shape.draw()
+    >>> for shape in shapes:
+    ...    shape.scale(2.5)
+    ...    shape.draw()
+    API1.circle at 1:2 radius 7.5
+    API2.circle at 5:7 radius 27.5
+    """
 
 
 if __name__ == '__main__':
-    main()
-
-### OUTPUT ###
-# API1.circle at 1:2 radius 7.5
-# API2.circle at 5:7 radius 27.5
+    import doctest
+    doctest.testmod()

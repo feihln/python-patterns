@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding : utf-8 -*-
-
 """
 *What is this pattern about?
 It decouples the creation of a complex object and its representation,
@@ -94,18 +91,23 @@ def construct_building(cls):
     return building
 
 
-# Client
-if __name__ == "__main__":
-    house = House()
-    print(house)
-    flat = Flat()
-    print(flat)
+def main():
+    """
+    >>> house = House()
+    >>> house
+    Floor: One | Size: Big
+
+    >>> flat = Flat()
+    >>> flat
+    Floor: More than One | Size: Small
 
     # Using an external constructor function:
-    complex_house = construct_building(ComplexHouse)
-    print(complex_house)
+    >>> complex_house = construct_building(ComplexHouse)
+    >>> complex_house
+    Floor: One | Size: Big and fancy
+    """
 
-### OUTPUT ###
-# Floor: One | Size: Big
-# Floor: More than One | Size: Small
-# Floor: One | Size: Big and fancy
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
